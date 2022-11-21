@@ -1,0 +1,69 @@
+package com.nt.practice;
+
+import java.io.FileOutputStream;
+import java.io.FileWriter;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.io.Reader;
+import java.io.Writer;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+import org.apache.commons.io.IOUtils;
+
+import oracle.jdbc.pool.OracleConnectionPoolDataSource;
+
+public class ConnectionPool_Test_my_oraAnd_mysql {
+	private static final String SELECT_QUERY = "SELECT * FROM ACTORS_INFO";
+
+	public static void main(String[] args) {
+		OracleConnectionPoolDataSource ds = null;
+		try {
+			ds = new OracleConnectionPoolDataSource();
+			ds.setDriverType("thin");
+			ds.setURL("jdbc:oracle:thin:@localhost:1521:ORCL");
+			ds.setUser("scott");
+			ds.setPassword("tiger");
+
+		} catch (SQLException se) {
+			se.printStackTrace();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		try (Connection con = ds.getConnection();
+				PreparedStatement ps = con.prepareStatement(SELECT_QUERY);
+				ResultSet rs = ps.executeQuery();) {
+			// process the result set obj
+			if (rs != null) {
+				boolean isEmpty = true;
+				while (rs.next()) {
+					int id = rs.getInt(1);
+					String name = rs.getString(2);
+					try (InputStream is = rs.getBinaryStream(3);
+							Reader reader = rs.getCharacterStream(4);
+							OutputStream os = new FileOutputStream("file.jpeg");
+							Writer writer = new FileWriter("file2.txt");) {
+						IOUtils.copy(is, os);
+						IOUtils.copy(reader, writer);
+						System.out.println("Id is " + id + "Name is " + name + "lobs are retrived");
+						isEmpty = false;
+						if (!isEmpty)
+							System.out.println("Record not found::");
+						else
+							System.out.println("Record found");
+					}
+				}
+			}
+		}
+
+		catch (SQLException se) {
+			se.printStackTrace();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+	}
+
+}

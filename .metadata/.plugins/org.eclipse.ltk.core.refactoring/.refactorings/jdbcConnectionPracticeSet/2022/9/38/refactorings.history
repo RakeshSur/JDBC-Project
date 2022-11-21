@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename type &apos;com.nt.practice.CallableTest&apos; to &apos;LobInsertionMysql&apos;&#x0D;&#x0A;- Original project: &apos;jdbcConnectionPracticeSet&apos;&#x0D;&#x0A;- Original element: &apos;com.nt.practice.CallableTest&apos;&#x0D;&#x0A;- Renamed element: &apos;com.nt.practice.LobInsertionMysql&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" description="Rename type &apos;CallableTest&apos;" flags="589830" id="org.eclipse.jdt.ui.rename.type" input="/src&lt;com.nt.practice{CallableTest.java[CallableTest" matchStrategy="1" name="LobInsertionMysql" qualified="false" references="true" similarDeclarations="false" stamp="1662975333722" textual="false" version="1.0"/>
+</session>

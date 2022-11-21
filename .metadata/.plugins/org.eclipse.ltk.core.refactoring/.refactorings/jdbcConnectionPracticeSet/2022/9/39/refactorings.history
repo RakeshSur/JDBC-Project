@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename type &apos;com.nt.practice.Test&apos; to &apos;ConnectionPool_Test_my_oraAnd_mysql&apos;&#x0D;&#x0A;- Original project: &apos;jdbcConnectionPracticeSet&apos;&#x0D;&#x0A;- Original element: &apos;com.nt.practice.Test&apos;&#x0D;&#x0A;- Renamed element: &apos;com.nt.practice.ConnectionPool_Test_my_oraAnd_mysql&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" description="Rename type &apos;Test&apos;" flags="589830" id="org.eclipse.jdt.ui.rename.type" input="/src&lt;com.nt.practice{Test.java[Test" matchStrategy="1" name="ConnectionPool_Test_my_oraAnd_mysql" qualified="false" references="true" similarDeclarations="false" stamp="1663580597407" textual="false" version="1.0"/>
+</session>
